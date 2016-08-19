@@ -18,6 +18,8 @@
 	- What's the range of value of each element?
 	- Is the input array sorted? Does the order matter?
 	- Is duplicated element allowed in input or output?
+        - Integers? Nagtive?
+	- String? all lowercase? UTF-8 encode?
 
 - [Bitset](https://docs.oracle.com/javase/7/docs/api/java/util/BitSet.html)
 
