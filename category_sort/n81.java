@@ -12,12 +12,12 @@ public class Solution {
             if (nums[mid]==target) {
                 return true;
             }
-            else if (nums[mid] > nums[lo]) { // left half
-                if (nums[mid] > target && target >= nums[lo]) hi = mid; // mid in left half but target in right
+            else if (nums[mid] > nums[hi]) { // left half
+                if (nums[mid] > target && target >= nums[lo]) hi = mid; // left to mid is non-rotated
                 else lo = mid;
             }
-            else if (nums[mid] < nums[hi]) { // right half
-                if (nums[mid] < target && target <= nums[hi]) lo = mid; // mid in right half but target in left
+            else if (nums[mid] < nums[lo]) { // right half
+                if (nums[mid] < target && target <= nums[hi]) lo = mid; // right to mid is non-rotated
                 else hi = mid;
             }
             else { // can’t decide which part should choose, then just search every possible position
