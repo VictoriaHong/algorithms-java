@@ -30,3 +30,22 @@
     [map.computeIfPresent](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfPresent-K-java.util.function.BiFunction-)
 
 - [External sorting, 九路归并算法](https://www.wikiwand.com/zh/%E5%A4%96%E6%8E%92%E5%BA%8F) 
+
+- Dynamic programming
+
+    存在一种方向感。
+
+    - When?
+        - 求max, min
+        - 是否存在？yes,no
+        - 共有多少种方案？num of possible paths?
+
+    - When not?
+        - 求具体方案, give a solution
+        - 输入是集合，不是序列, no order
+
+    - How?
+        - 矩阵型（坐标）1d, 2d
+        - 分割型：如果限制了切割的子字符串的个数为k，2d，f[i][j]为前i个字符切成j个单词是否可行；没有限制，1d。
+        - 区间型：i-j 2d
+        - 两个序列：2d
