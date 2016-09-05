@@ -49,3 +49,10 @@
         - 分割型：如果限制了切割的子字符串的个数为k，2d，f[i][j]为前i个字符切成j个单词是否可行；没有限制，1d。
         - 区间型：i-j 2d
         - 两个序列：2d
+
+- 图的遍历
+
+    - 最常见 bfs: 求两点间最短距离，求方案总数
+    - dfs + bfs: 求具体最短距离方案，bfs负责找到起点的距离，dfs从终点逆推搜索全部方案
+
+- [总结: Subsets, Permutations, Combination Sum, Palindrome Partioning](https://discuss.leetcode.com/topic/46162/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partioning)
