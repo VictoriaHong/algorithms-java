@@ -1,0 +1,40 @@
+// Word Ladder
+// bfs
+public class Solution {
+    public int ladderLength(String beginWord, String endWord, Set<String> wordList) {
+        if (wordList == null || wordList.size() == 0 || beginWord.equals(endWord)) return 0;
+        
+        Queue<String> q = new LinkedList<String>();
+        q.offer(beginWord);
+        wordList.remove(beginWord); // may cause a cycle
+        int len = 0;
+        
+        while (!q.isEmpty()) {
+            len++;
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                String cur = q.poll();
+                for (int j = 0; j < cur.length(); j++) {
+                    char[] ss = cur.toCharArray();
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        if (ss[j] == c) continue;
+                        String newWord = replace(ss, j, c);
+                        if (!wordList.contains(newWord)) continue;
+                        if (newWord.equals(endWord)) return len + 1;
+                        else {
+                            q.offer(newWord);
+                            wordList.remove(newWord);
+                        }
+                    }
+                }
+            }
+        }
+        
+        return 0; // not find endword
+    }
+    
+    public String replace(char[] cs, int i, char c) {
+        cs[i] = c;
+        return new String(cs);
+    }
+}
