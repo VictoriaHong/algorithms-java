@@ -24,3 +24,32 @@ public class Solution {
         return res;
     }
 }
+
+// two pointers
+public class Solution {
+    public int trap(int[] height) {
+        if (height == null) return 0;
+        int n = height.length;
+        int i = 0;
+        int j = n - 1;
+        int sum = 0;
+        int minh = 0;
+        while (i < j) {
+            if (height[i] < height[j]) {
+                minh = height[i];
+                while (i < j && height[i] <= minh) {
+                    sum += minh - height[i];
+                    i++;
+                }
+            }
+            else {
+                minh = height[j];
+                while (i < j && height[j] <= minh) {
+                    sum += minh - height[j];
+                    j--;
+                }
+            }
+        }
+        return sum;
+    }
+}
