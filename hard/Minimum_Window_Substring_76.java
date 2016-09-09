@@ -45,21 +45,24 @@ public class Solution {
         
         for (char c: t.toCharArray()) tt[c]++;
         
-        // iterate s, two pointers: i(lo), hi
-        int hi = 0;
+        int i = 0; // girl
+        int j = 0; // boy
         int min = Integer.MAX_VALUE;
         String res = "";
-        for (int i = 0; i < s.length(); i++) {
-            while(hi < s.length() && !find(tt, ss)) { // not find all eles in t
-                ss[s.charAt(hi)]++;
-                hi++;
-            }
-            if (find(tt, ss) && min > hi-i+1) {
-                min = hi-i+1;
-                res = s.substring(i, hi); // hi already add 1 in while loop
-            }
-            ss[s.charAt(i)]--; // remove i from ss
+        for (; i < s.length(); i++) {
+            char cur = s.charAt(i);
+            ss[cur]++;
+            if (find(tt, ss)) {
+                while (j <= i && find(tt, ss)) { // move j to narrow the min substring
+                    if (min > i - j + 1) {
+                        min = i - j + 1;
+                        res = s.substring(j, i + 1);
+                    }
+                    ss[s.charAt(j++)]--; // remove useless letter in ss
+                } // when break, means can't move j farther to hold all letters in tt, j now points to new beginning of substring
+            } // not find, move i
         }
+
         return res;
     }
     
