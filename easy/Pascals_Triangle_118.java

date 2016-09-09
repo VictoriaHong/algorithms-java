@@ -1,0 +1,17 @@
+// Pascal's Triangle
+public class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if (numRows == 0) return res;
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> line = new ArrayList<Integer>();
+            line.add(1);
+            for (int j = 1; j < i; j++) {
+                line.add(res.get(i - 1).get(j - 1) + res.get(i - 1).get(j));
+            }
+            if (i != 0) line.add(1);
+            res.add(line);
+        }
+        return res;
+    }
+}
